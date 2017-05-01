@@ -65,8 +65,11 @@
 
 - (IBAction)location1Pressed:(id)sender {
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.5600088, -122.3906479);
-    
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
+    MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
+    point.coordinate = coordinate;
+    point.title = @"Home";
+    [self.mapView addAnnotation:point];
     
     [self.mapView setRegion:region animated:YES];
 }
@@ -74,14 +77,21 @@
 - (IBAction)codeFellowsPressed:(id)sender {
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.618217, -122.3540207);
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
+    MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
+    point.coordinate = coordinate;
+    point.title = @"Code Fellows";
+    [self.mapView addAnnotation:point];
     
     [self.mapView setRegion:region animated:YES];
 }
 
 - (IBAction)momPressed:(id)sender {
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(36.319423, -82.3780237);
-    
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
+    MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
+    point.coordinate = coordinate;
+    point.title = @"Mom";
+    [self.mapView addAnnotation:point];
     
     [self.mapView setRegion:region animated:YES];
 }
