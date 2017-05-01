@@ -366,6 +366,7 @@
 				A1D0746E1EB7AC1F0086AE7A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
