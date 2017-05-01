@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 
+@import Parse;
+@import MapKit;
+
 @interface ViewController ()
 
 @end
@@ -17,6 +20,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    
+    testObject[@"testName"] = @"David Porter";
+    
+    [testObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Success Saving test object");
+        } else {
+            NSLog(@"There was a problem saving. Save Error: %@", error.localizedDescription);
+        }
+    }];
+    
+//    PFQuery *query = [PFQuery queryWithClassName:@"TestObject"];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+//        if (error) {
+//            NSLog(@"%", error.localizedDescription);
+//        } else {
+//            NSLog(@"Query Results %@", objects);
+//        }
+//    }];
 }
 
 
