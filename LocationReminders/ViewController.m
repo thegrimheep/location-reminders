@@ -12,6 +12,7 @@
 @import MapKit;
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -41,6 +42,8 @@
 //            NSLog(@"Query Results %@", objects);
 //        }
 //    }];
+}
+- (IBAction)location1Pressed:(id)sender {
 }
 
 
