@@ -64,7 +64,7 @@
 }
 
 - (IBAction)location1Pressed:(id)sender {
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.5600088, -122.3906479);
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.560009, -122.388459);
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
     MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
     point.coordinate = coordinate;
@@ -75,7 +75,7 @@
 }
 
 - (IBAction)codeFellowsPressed:(id)sender {
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.618217, -122.3540207);
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.618217, -122.351832);
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
     MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
     point.coordinate = coordinate;
@@ -86,7 +86,7 @@
 }
 
 - (IBAction)momPressed:(id)sender {
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(36.319423, -82.3780237);
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(36.319423, -82.375835);
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
     MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
     point.coordinate = coordinate;
