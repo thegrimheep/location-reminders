@@ -13,6 +13,12 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIButton *homeButtonEffects;
+@property (weak, nonatomic) IBOutlet UIButton *codeFellowsEffects;
+@property (weak, nonatomic) IBOutlet UIButton *momEffects;
+
+
+
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
@@ -46,6 +52,10 @@
     
     [self requestPermissions];
     self.mapView.showsUserLocation = YES;
+    
+    self.homeButtonEffects.layer.cornerRadius = 10;
+    self.codeFellowsEffects.layer.cornerRadius = 10;
+    self.momEffects.layer.cornerRadius = 10;
 }
 
 -(void)requestPermissions {
@@ -61,6 +71,20 @@
     [self.mapView setRegion:region animated:YES];
 }
 
+- (IBAction)codeFellowsPressed:(id)sender {
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.618217, -122.3540207);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
+    
+    [self.mapView setRegion:region animated:YES];
+}
+
+- (IBAction)momPressed:(id)sender {
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(36.319423, -82.3780237);
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
+    
+    [self.mapView setRegion:region animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
