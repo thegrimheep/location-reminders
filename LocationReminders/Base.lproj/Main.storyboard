@@ -26,8 +26,8 @@
                                 <rect key="frame" x="56" y="99.5" width="262.5" height="467"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-mY-NN5">
-                                <rect key="frame" x="152" y="574" width="70" height="30"/>
-                                <state key="normal" title="Location 1"/>
+                                <rect key="frame" x="166.5" y="574" width="41" height="30"/>
+                                <state key="normal" title="Home"/>
                                 <connections>
                                     <action selector="location1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4dW-ll-gsc"/>
                                 </connections>
