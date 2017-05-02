@@ -23,11 +23,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OZr-0V-zUS">
-                                <rect key="frame" x="19" y="100" width="337.5" height="467"/>
+                                <rect key="frame" x="19" y="100" width="338" height="467"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-mY-NN5">
-                                <rect key="frame" x="30" y="587" width="41" height="30"/>
+                                <rect key="frame" x="30" y="587" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.11231491139999999" green="0.23595618360000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="l4X-NV-ODw"/>
+                                </constraints>
                                 <state key="normal" title="Home">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -36,8 +39,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrC-dU-gNk">
-                                <rect key="frame" x="141.5" y="587" width="92" height="30"/>
+                                <rect key="frame" x="138" y="587" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.11231491139999999" green="0.23595618360000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="qmz-JP-3xA"/>
+                                </constraints>
                                 <state key="normal" title="Code Fellows">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -46,8 +52,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLF-Rb-DUB">
-                                <rect key="frame" x="310" y="587" width="35" height="30"/>
+                                <rect key="frame" x="285" y="587" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.11231491139999999" green="0.23595618360000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Yei-Zu-kFn"/>
+                                </constraints>
                                 <state key="normal" title="Mom">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -55,10 +64,12 @@
                                     <action selector="momPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L1h-sU-NzL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXO-o8-ahi">
-                                <rect key="frame" x="243" y="28" width="102" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXO-o8-ahi">
+                                <rect key="frame" x="245" y="28" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.11231491139999999" green="0.23595618360000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="06w-ho-tDk"/>
+                                </constraints>
                                 <state key="normal" title="My Location">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -77,6 +88,9 @@
                             <constraint firstItem="OZr-0V-zUS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="dZX-VX-e0x"/>
                             <constraint firstItem="XLF-Rb-DUB" firstAttribute="baseline" secondItem="cUl-mY-NN5" secondAttribute="baseline" id="ea6-0t-8sH"/>
                             <constraint firstItem="OZr-0V-zUS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="fAO-60-Pgc"/>
+                            <constraint firstItem="cXO-o8-ahi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="hVP-vy-4gZ"/>
+                            <constraint firstItem="OZr-0V-zUS" firstAttribute="top" secondItem="cXO-o8-ahi" secondAttribute="bottom" constant="42" id="lTW-LU-sJw"/>
+                            <constraint firstAttribute="trailing" secondItem="cXO-o8-ahi" secondAttribute="trailing" constant="30" id="onB-fl-pxa"/>
                             <constraint firstItem="wrC-dU-gNk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tca-s8-Ynn"/>
                             <constraint firstItem="OZr-0V-zUS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="xMp-Uj-3UU"/>
                         </constraints>
@@ -86,6 +100,7 @@
                         <outlet property="homeButtonEffects" destination="cUl-mY-NN5" id="zEQ-Sb-az8"/>
                         <outlet property="mapView" destination="OZr-0V-zUS" id="6ME-g8-p6d"/>
                         <outlet property="momEffects" destination="XLF-Rb-DUB" id="XLN-1E-cFT"/>
+                        <outlet property="myLocationEffects" destination="cXO-o8-ahi" id="fDl-YQ-knW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

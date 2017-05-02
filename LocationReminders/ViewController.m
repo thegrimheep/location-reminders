@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *homeButtonEffects;
 @property (weak, nonatomic) IBOutlet UIButton *codeFellowsEffects;
 @property (weak, nonatomic) IBOutlet UIButton *momEffects;
+@property (weak, nonatomic) IBOutlet UIButton *myLocationEffects;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
@@ -55,6 +56,7 @@
     self.homeButtonEffects.layer.cornerRadius = 10;
     self.codeFellowsEffects.layer.cornerRadius = 10;
     self.momEffects.layer.cornerRadius = 10;
+    self.myLocationEffects.layer.cornerRadius = 10;
 }
 
 -(void)requestPermissions {
