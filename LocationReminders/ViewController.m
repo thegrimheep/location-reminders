@@ -75,7 +75,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [super prepareForSegue:segue sender:sender];
     
-    if ([segue.identifier isEqualToString:@"AddReminderViewCOntroller"] && [sender isKindOfClass:[MKPinAnnotationView class]]) {
+    if ([segue.identifier isEqualToString:@"AddReminderViewController"] && [sender isKindOfClass:[MKPinAnnotationView class]]) {
         MKAnnotationView *annotationView = (MKAnnotationView *)sender;
         AddReminderViewController *newReminderViewController = (AddReminderViewController *)segue.destinationViewController;
         

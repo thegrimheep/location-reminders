@@ -19,6 +19,7 @@
 		A1D074791EB7BE450086AE7A /* Bolts.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A1D074741EB7B47E0086AE7A /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1D0747B1EB7C0C10086AE7A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D0747A1EB7C0C10086AE7A /* MapKit.framework */; };
 		A1D0747E1EB8FF1C0086AE7A /* AddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D0747D1EB8FF1C0086AE7A /* AddReminderViewController.m */; };
+		A1D074811EB924610086AE7A /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D074801EB924610086AE7A /* LocationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,8 @@
 		A1D0747A1EB7C0C10086AE7A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A1D0747C1EB8FF1C0086AE7A /* AddReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReminderViewController.h; sourceTree = "<group>"; };
 		A1D0747D1EB8FF1C0086AE7A /* AddReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReminderViewController.m; sourceTree = "<group>"; };
+		A1D0747F1EB924610086AE7A /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
+		A1D074801EB924610086AE7A /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,15 +91,10 @@
 		A1D074571EB7AC1F0086AE7A /* LocationReminders */ = {
 			isa = PBXGroup;
 			children = (
-				A1D0745B1EB7AC1F0086AE7A /* AppDelegate.h */,
-				A1D0745C1EB7AC1F0086AE7A /* AppDelegate.m */,
-				A1D0745E1EB7AC1F0086AE7A /* ViewController.h */,
-				A1D0745F1EB7AC1F0086AE7A /* ViewController.m */,
-				A1D074611EB7AC1F0086AE7A /* Main.storyboard */,
-				A1D0747C1EB8FF1C0086AE7A /* AddReminderViewController.h */,
-				A1D0747D1EB8FF1C0086AE7A /* AddReminderViewController.m */,
+				A1D074831EB924820086AE7A /* Controller */,
+				A1D074841EB924940086AE7A /* View */,
+				A1D074821EB9246E0086AE7A /* Model */,
 				A1D074641EB7AC1F0086AE7A /* Assets.xcassets */,
-				A1D074661EB7AC1F0086AE7A /* LaunchScreen.storyboard */,
 				A1D074691EB7AC1F0086AE7A /* Info.plist */,
 				A1D074581EB7AC1F0086AE7A /* Supporting Files */,
 			);
@@ -120,6 +118,37 @@
 				A1D074701EB7B2D50086AE7A /* Build */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1D074821EB9246E0086AE7A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A1D0745B1EB7AC1F0086AE7A /* AppDelegate.h */,
+				A1D0745C1EB7AC1F0086AE7A /* AppDelegate.m */,
+				A1D0747F1EB924610086AE7A /* LocationController.h */,
+				A1D074801EB924610086AE7A /* LocationController.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A1D074831EB924820086AE7A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A1D0745E1EB7AC1F0086AE7A /* ViewController.h */,
+				A1D0745F1EB7AC1F0086AE7A /* ViewController.m */,
+				A1D0747C1EB8FF1C0086AE7A /* AddReminderViewController.h */,
+				A1D0747D1EB8FF1C0086AE7A /* AddReminderViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A1D074841EB924940086AE7A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A1D074611EB7AC1F0086AE7A /* Main.storyboard */,
+				A1D074661EB7AC1F0086AE7A /* LaunchScreen.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D074811EB924610086AE7A /* LocationController.m in Sources */,
 				A1D0747E1EB8FF1C0086AE7A /* AddReminderViewController.m in Sources */,
 				A1D074601EB7AC1F0086AE7A /* ViewController.m in Sources */,
 				A1D0745D1EB7AC1F0086AE7A /* AppDelegate.m in Sources */,
