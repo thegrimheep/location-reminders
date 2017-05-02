@@ -7,12 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "AddReminderViewController.h"
 
 @import Parse;
 @import MapKit;
 @import CoreLocation;
 
-@interface ViewController () <CLLocationManagerDelegate>
+@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *homeButtonEffects;
 @property (weak, nonatomic) IBOutlet UIButton *codeFellowsEffects;
@@ -53,6 +54,8 @@
     [self requestPermissions];
     self.mapView.showsUserLocation = YES;
     
+    self.mapView.delegate = self;
+    
     self.homeButtonEffects.layer.cornerRadius = 10;
     self.codeFellowsEffects.layer.cornerRadius = 10;
     self.momEffects.layer.cornerRadius = 10;
@@ -72,10 +75,10 @@
 - (IBAction)location1Pressed:(id)sender {
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.560009, -122.388459);
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
-    MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
-    point.coordinate = coordinate;
-    point.title = @"Home";
-    [self.mapView addAnnotation:point];
+//    MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
+//    point.coordinate = coordinate;
+//    point.title = @"Home";
+//    [self.mapView addAnnotation:point];
     
     [self.mapView setRegion:region animated:YES];
 }
@@ -83,10 +86,10 @@
 - (IBAction)codeFellowsPressed:(id)sender {
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.618217, -122.351832);
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
-    MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
-    point.coordinate = coordinate;
-    point.title = @"Code Fellows";
-    [self.mapView addAnnotation:point];
+//    MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
+//    point.coordinate = coordinate;
+//    point.title = @"Code Fellows";
+//    [self.mapView addAnnotation:point];
     
     [self.mapView setRegion:region animated:YES];
 }
@@ -94,10 +97,10 @@
 - (IBAction)momPressed:(id)sender {
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(36.319423, -82.375835);
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
-    MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
-    point.coordinate = coordinate;
-    point.title = @"Mom";
-    [self.mapView addAnnotation:point];
+//    MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
+//    point.coordinate = coordinate;
+//    point.title = @"Mom";
+//    [self.mapView addAnnotation:point];
     
     [self.mapView setRegion:region animated:YES];
 }
@@ -111,15 +114,42 @@
     [_mapView setRegion:mapRegion animated:YES];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)userLongPressed:(UILongPressGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        CGPoint touchPoint = [sender locationInView:self.mapView];
+        CLLocationCoordinate2D coordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+        MKPointAnnotation *newPoint = [[MKPointAnnotation alloc]init];
+        newPoint.coordinate = coordinate;
+        newPoint.title = @"New Location";
+        [self.mapView addAnnotation:newPoint];
+    }
 }
+
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    CLLocation *location = locations.lastObject;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0, 500.0);
     
+    [self.mapView setRegion:region animated:YES];
 }
 
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
+    MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"annotationView"];
+    
+    annotationView.annotation = annotation;
+    
+    if (!annotationView) {
+        annotationView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"annotationView"];
+    }
+    annotationView.canShowCallout = YES;
+    annotationView.animatesDrop = YES;
+    
+    UIButton *rightCalloutAccessory = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];  //callout button
+    annotationView.rightCalloutAccessoryView = rightCalloutAccessory;
+    return annotationView;
+}
 
 @end

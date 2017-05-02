@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ybz-ep-BMX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,11 +22,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OZr-0V-zUS">
-                                <rect key="frame" x="19" y="100" width="338" height="467"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OZr-0V-zUS">
+                                <rect key="frame" x="19" y="144" width="338" height="379"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="k8J-i5-EfN" appends="YES" id="ISz-eR-RkD"/>
+                                </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-mY-NN5">
-                                <rect key="frame" x="30" y="587" width="60" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-mY-NN5">
+                                <rect key="frame" x="30" y="543" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.11231491139999999" green="0.23595618360000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="l4X-NV-ODw"/>
@@ -38,8 +42,8 @@
                                     <action selector="location1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4dW-ll-gsc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrC-dU-gNk">
-                                <rect key="frame" x="138" y="587" width="100" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrC-dU-gNk">
+                                <rect key="frame" x="138" y="543" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.11231491139999999" green="0.23595618360000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="qmz-JP-3xA"/>
@@ -51,8 +55,8 @@
                                     <action selector="codeFellowsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U2A-09-YVQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLF-Rb-DUB">
-                                <rect key="frame" x="285" y="587" width="60" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLF-Rb-DUB">
+                                <rect key="frame" x="285" y="543" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.11231491139999999" green="0.23595618360000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="Yei-Zu-kFn"/>
@@ -65,7 +69,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXO-o8-ahi">
-                                <rect key="frame" x="245" y="28" width="100" height="30"/>
+                                <rect key="frame" x="245" y="72" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.11231491139999999" green="0.23595618360000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="06w-ho-tDk"/>
@@ -87,23 +91,64 @@
                             <constraint firstItem="XLF-Rb-DUB" firstAttribute="baseline" secondItem="wrC-dU-gNk" secondAttribute="baseline" id="UIi-Bb-f9g"/>
                             <constraint firstItem="OZr-0V-zUS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="dZX-VX-e0x"/>
                             <constraint firstItem="XLF-Rb-DUB" firstAttribute="baseline" secondItem="cUl-mY-NN5" secondAttribute="baseline" id="ea6-0t-8sH"/>
-                            <constraint firstItem="OZr-0V-zUS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="fAO-60-Pgc"/>
                             <constraint firstItem="cXO-o8-ahi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="hVP-vy-4gZ"/>
-                            <constraint firstItem="OZr-0V-zUS" firstAttribute="top" secondItem="cXO-o8-ahi" secondAttribute="bottom" constant="42" id="lTW-LU-sJw"/>
                             <constraint firstAttribute="trailing" secondItem="cXO-o8-ahi" secondAttribute="trailing" constant="30" id="onB-fl-pxa"/>
                             <constraint firstItem="wrC-dU-gNk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tca-s8-Ynn"/>
                             <constraint firstItem="OZr-0V-zUS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="xMp-Uj-3UU"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="VGY-zz-j8w"/>
                     <connections>
                         <outlet property="codeFellowsEffects" destination="wrC-dU-gNk" id="iMV-cQ-a78"/>
                         <outlet property="homeButtonEffects" destination="cUl-mY-NN5" id="zEQ-Sb-az8"/>
                         <outlet property="mapView" destination="OZr-0V-zUS" id="6ME-g8-p6d"/>
                         <outlet property="momEffects" destination="XLF-Rb-DUB" id="XLN-1E-cFT"/>
                         <outlet property="myLocationEffects" destination="cXO-o8-ahi" id="fDl-YQ-knW"/>
+                        <segue destination="yfN-mX-8Sc" kind="show" identifier="AddReminderViewController" id="Ljs-oE-pWU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="k8J-i5-EfN">
+                    <connections>
+                        <action selector="userLongPressed:" destination="BYZ-38-t0r" id="3HT-bk-SCy"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="972" y="37.331334332833585"/>
+        </scene>
+        <!--Add Reminder View Controller-->
+        <scene sceneID="1Ab-Ag-tkW">
+            <objects>
+                <viewController id="yfN-mX-8Sc" customClass="AddReminderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2dj-he-kFH"/>
+                        <viewControllerLayoutGuide type="bottom" id="ie8-OG-Y7h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FPC-x4-IiC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B8P-i2-ZIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1737" y="37"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Tnr-uU-5jg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ybz-ep-BMX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pvr-V0-v1p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="20i-hf-dEO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h44-Lm-rVw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
