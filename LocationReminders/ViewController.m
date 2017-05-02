@@ -10,14 +10,13 @@
 
 @import Parse;
 @import MapKit;
+@import CoreLocation;
 
-@interface ViewController ()
+@interface ViewController ()<CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *homeButtonEffects;
 @property (weak, nonatomic) IBOutlet UIButton *codeFellowsEffects;
 @property (weak, nonatomic) IBOutlet UIButton *momEffects;
-
-
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
@@ -95,6 +94,16 @@
     
     [self.mapView setRegion:region animated:YES];
 }
+
+- (IBAction)myLocationPressed:(id)sender {
+    MKCoordinateRegion mapRegion;
+    mapRegion.center = _mapView.userLocation.coordinate;
+    mapRegion.span.latitudeDelta = 0.025;
+    mapRegion.span.longitudeDelta = 0.025;
+    
+    [_mapView setRegion:mapRegion animated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
