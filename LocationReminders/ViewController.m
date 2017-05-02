@@ -12,7 +12,7 @@
 @import MapKit;
 @import CoreLocation;
 
-@interface ViewController ()<CLLocationManagerDelegate>
+@interface ViewController () <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *homeButtonEffects;
 @property (weak, nonatomic) IBOutlet UIButton *codeFellowsEffects;
@@ -61,7 +61,12 @@
 
 -(void)requestPermissions {
     self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter = 100;
+    self.locationManager.delegate = self;
+    
     [self.locationManager requestAlwaysAuthorization];
+    [self.locationManager startUpdatingLocation];
 }
 
 - (IBAction)location1Pressed:(id)sender {
@@ -110,6 +115,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    
 }
 
 
