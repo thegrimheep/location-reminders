@@ -12,6 +12,6 @@
 @interface AddReminderViewController : UIViewController
 
 @property(strong, nonatomic) NSString *annotationTitle;
-@property(nonatomic) CLLocationCoordinate2D *coordinate;
+@property(nonatomic) CLLocationCoordinate2D coordinate;
 
 @end

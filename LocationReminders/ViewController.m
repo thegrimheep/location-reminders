@@ -72,6 +72,19 @@
     [self.locationManager startUpdatingLocation];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
+    
+    if ([segue.identifier isEqualToString:@"AddReminderViewCOntroller"] && [sender isKindOfClass:[MKPinAnnotationView class]]) {
+        MKAnnotationView *annotationView = (MKAnnotationView *)sender;
+        AddReminderViewController *newReminderViewController = (AddReminderViewController *)segue.destinationViewController;
+        
+        newReminderViewController.coordinate = annotationView.annotation.coordinate;
+        newReminderViewController.annotationTitle = annotationView.annotation.title;
+        newReminderViewController.title = annotationView.annotation.title;
+    }
+}
+
 - (IBAction)location1Pressed:(id)sender {
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.560009, -122.388459);
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
@@ -151,5 +164,13 @@
     annotationView.rightCalloutAccessoryView = rightCalloutAccessory;
     return annotationView;
 }
+
+
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    NSLog(@"acessory Tapped");
+    [self performSegueWithIdentifier:@"AddReminderViewController" sender:view];
+}
+
+
 
 @end

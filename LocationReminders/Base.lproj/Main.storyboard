@@ -22,14 +22,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OZr-0V-zUS">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OZr-0V-zUS">
                                 <rect key="frame" x="19" y="144" width="338" height="379"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="k8J-i5-EfN" appends="YES" id="ISz-eR-RkD"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-mY-NN5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-mY-NN5">
                                 <rect key="frame" x="30" y="543" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.11231491139999999" green="0.23595618360000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -42,7 +42,7 @@
                                     <action selector="location1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4dW-ll-gsc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrC-dU-gNk">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrC-dU-gNk">
                                 <rect key="frame" x="138" y="543" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.11231491139999999" green="0.23595618360000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -55,7 +55,7 @@
                                     <action selector="codeFellowsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U2A-09-YVQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLF-Rb-DUB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLF-Rb-DUB">
                                 <rect key="frame" x="285" y="543" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.11231491139999999" green="0.23595618360000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -87,6 +87,7 @@
                             <constraint firstAttribute="trailing" secondItem="XLF-Rb-DUB" secondAttribute="trailing" constant="30" id="3Qu-Qi-LFu"/>
                             <constraint firstItem="cUl-mY-NN5" firstAttribute="top" secondItem="OZr-0V-zUS" secondAttribute="bottom" constant="20" id="7ab-fd-XIU"/>
                             <constraint firstItem="OZr-0V-zUS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7ph-t6-ERr"/>
+                            <constraint firstItem="OZr-0V-zUS" firstAttribute="top" secondItem="cXO-o8-ahi" secondAttribute="bottom" constant="42" id="Bxm-sR-563"/>
                             <constraint firstItem="cUl-mY-NN5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="JtE-ll-CEt"/>
                             <constraint firstItem="XLF-Rb-DUB" firstAttribute="baseline" secondItem="wrC-dU-gNk" secondAttribute="baseline" id="UIi-Bb-f9g"/>
                             <constraint firstItem="OZr-0V-zUS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="dZX-VX-e0x"/>
