@@ -8,19 +8,19 @@
 
 #import "ViewController.h"
 #import "AddReminderViewController.h"
+#import "LocationControllerDelegate.h"
+#import "LocationController.h"
 
 @import Parse;
 @import MapKit;
 @import CoreLocation;
 
-@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
+@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate, LocationControllerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *homeButtonEffects;
 @property (weak, nonatomic) IBOutlet UIButton *codeFellowsEffects;
 @property (weak, nonatomic) IBOutlet UIButton *momEffects;
 @property (weak, nonatomic) IBOutlet UIButton *myLocationEffects;
-
-@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -51,25 +51,15 @@
 //        }
 //    }];
     
-    [self requestPermissions];
+    LocationController *locationController = [LocationController shared];
+    locationController.delegate = self;
+    
     self.mapView.showsUserLocation = YES;
-    
     self.mapView.delegate = self;
-    
     self.homeButtonEffects.layer.cornerRadius = 10;
     self.codeFellowsEffects.layer.cornerRadius = 10;
     self.momEffects.layer.cornerRadius = 10;
     self.myLocationEffects.layer.cornerRadius = 10;
-}
-
--(void)requestPermissions {
-    self.locationManager = [[CLLocationManager alloc]init];
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    self.locationManager.distanceFilter = 100;
-    self.locationManager.delegate = self;
-    
-    [self.locationManager requestAlwaysAuthorization];
-    [self.locationManager startUpdatingLocation];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -121,12 +111,8 @@
 }
 
 - (IBAction)myLocationPressed:(id)sender {
-    MKCoordinateRegion mapRegion;
-    mapRegion.center = _mapView.userLocation.coordinate;
-    mapRegion.span.latitudeDelta = 0.025;
-    mapRegion.span.longitudeDelta = 0.025;
-    
-    [_mapView setRegion:mapRegion animated:YES];
+    self.mapView.showsUserLocation = YES;
+    [[LocationController shared] updateLocation];
 }
 
 - (IBAction)userLongPressed:(UILongPressGestureRecognizer *)sender {
@@ -138,14 +124,6 @@
         newPoint.title = @"New Location";
         [self.mapView addAnnotation:newPoint];
     }
-}
-
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    CLLocation *location = locations.lastObject;
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0, 500.0);
-    
-    [self.mapView setRegion:region animated:YES];
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
@@ -167,10 +145,14 @@
     return annotationView;
 }
 
-
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     NSLog(@"acessory Tapped");
     [self performSegueWithIdentifier:@"AddReminderViewController" sender:view];
+}
+
+-(void)locationControllerUpdatedLocation:(CLLocation *)location {
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0, 500.0);
+    [self.mapView setRegion:region animated:YES];
 }
 
 

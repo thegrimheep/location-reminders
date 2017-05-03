@@ -55,6 +55,7 @@
 		A1D0747D1EB8FF1C0086AE7A /* AddReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReminderViewController.m; sourceTree = "<group>"; };
 		A1D0747F1EB924610086AE7A /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
 		A1D074801EB924610086AE7A /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
+		A1D074851EB937390086AE7A /* LocationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationControllerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +126,7 @@
 			children = (
 				A1D0745B1EB7AC1F0086AE7A /* AppDelegate.h */,
 				A1D0745C1EB7AC1F0086AE7A /* AppDelegate.m */,
+				A1D074851EB937390086AE7A /* LocationControllerDelegate.h */,
 				A1D0747F1EB924610086AE7A /* LocationController.h */,
 				A1D074801EB924610086AE7A /* LocationController.m */,
 			);
