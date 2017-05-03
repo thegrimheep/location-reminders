@@ -15,6 +15,7 @@
 @import MapKit;
 @import CoreLocation;
 @import ParseUI;
+@import Twitter;
 
 @interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate, LocationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -47,14 +48,23 @@
         loginViewController.delegate = self;
         loginViewController.signUpController.delegate = self;
         
-        loginViewController.fields = PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsUsernameAndPassword;
+        loginViewController.fields = PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsUsernameAndPassword | PFLogInFieldsTwitter;
         
         [self presentViewController:loginViewController animated:YES completion:nil];
     }
     
+    PFQuery *query = [PFQuery queryWithClassName:@"Reminder"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error Fetching The Reminder %@", error.localizedDescription);
+        } else {
+            NSLog(@"%@", objects);
+        }
+    }];
 }
 
 -(void)reminderSavedToParse:(id)sender {
+    
     NSLog(@"Do Some stuff since our reminder was saved to parse");
 }
 
