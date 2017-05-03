@@ -20,6 +20,7 @@
 		A1D0747B1EB7C0C10086AE7A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D0747A1EB7C0C10086AE7A /* MapKit.framework */; };
 		A1D0747E1EB8FF1C0086AE7A /* AddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D0747D1EB8FF1C0086AE7A /* AddReminderViewController.m */; };
 		A1D074811EB924610086AE7A /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D074801EB924610086AE7A /* LocationController.m */; };
+		A1D074881EBA465F0086AE7A /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D074871EBA465F0086AE7A /* Reminder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +57,8 @@
 		A1D0747F1EB924610086AE7A /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
 		A1D074801EB924610086AE7A /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
 		A1D074851EB937390086AE7A /* LocationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationControllerDelegate.h; sourceTree = "<group>"; };
+		A1D074861EBA465F0086AE7A /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
+		A1D074871EBA465F0086AE7A /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 		A1D074821EB9246E0086AE7A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A1D074861EBA465F0086AE7A /* Reminder.h */,
+				A1D074871EBA465F0086AE7A /* Reminder.m */,
 				A1D0745B1EB7AC1F0086AE7A /* AppDelegate.h */,
 				A1D0745C1EB7AC1F0086AE7A /* AppDelegate.m */,
 				A1D074851EB937390086AE7A /* LocationControllerDelegate.h */,
@@ -232,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1D074811EB924610086AE7A /* LocationController.m in Sources */,
+				A1D074881EBA465F0086AE7A /* Reminder.m in Sources */,
 				A1D0747E1EB8FF1C0086AE7A /* AddReminderViewController.m in Sources */,
 				A1D074601EB7AC1F0086AE7A /* ViewController.m in Sources */,
 				A1D0745D1EB7AC1F0086AE7A /* AppDelegate.m in Sources */,
