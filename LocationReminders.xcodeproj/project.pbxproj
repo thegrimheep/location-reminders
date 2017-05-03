@@ -21,6 +21,7 @@
 		A1D0747E1EB8FF1C0086AE7A /* AddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D0747D1EB8FF1C0086AE7A /* AddReminderViewController.m */; };
 		A1D074811EB924610086AE7A /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D074801EB924610086AE7A /* LocationController.m */; };
 		A1D074881EBA465F0086AE7A /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D074871EBA465F0086AE7A /* Reminder.m */; };
+		A1D0748A1EBA5E710086AE7A /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D074891EBA5E710086AE7A /* ParseUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +60,7 @@
 		A1D074851EB937390086AE7A /* LocationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationControllerDelegate.h; sourceTree = "<group>"; };
 		A1D074861EBA465F0086AE7A /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
 		A1D074871EBA465F0086AE7A /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
+		A1D074891EBA5E710086AE7A /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			files = (
 				A1D074761EB7B47E0086AE7A /* Bolts.framework in Frameworks */,
 				A1D0747B1EB7C0C10086AE7A /* MapKit.framework in Frameworks */,
+				A1D0748A1EBA5E710086AE7A /* ParseUI.framework in Frameworks */,
 				A1D074771EB7B47E0086AE7A /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +119,7 @@
 		A1D0746F1EB7B2D50086AE7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1D074891EBA5E710086AE7A /* ParseUI.framework */,
 				A1D0747A1EB7C0C10086AE7A /* MapKit.framework */,
 				A1D074741EB7B47E0086AE7A /* Bolts.framework */,
 				A1D074751EB7B47E0086AE7A /* Parse.framework */,
@@ -367,6 +371,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = LocationReminders/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -383,6 +388,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = LocationReminders/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -28,11 +28,15 @@
         NSLog(@"Coordinates: %f, %f", self.coordinate.latitude, self.coordinate.longitude);
         NSLog(@"Save Reminder Successful:%i - Error: %@", succeeded, error.localizedDescription);
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ReminderSavedToParse" object:nil];
+        
         if (self.completion) {
             CGFloat radius = 100; //coming from UISlider or textfield
             MKCircle *circle = [MKCircle circleWithCenterCoordinate:self.coordinate radius:radius];
             
             self.completion(circle);
+            
+            //call this on the save button being clicked. 
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];

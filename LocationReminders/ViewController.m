@@ -14,8 +14,9 @@
 @import Parse;
 @import MapKit;
 @import CoreLocation;
+@import ParseUI;
 
-@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate, LocationControllerDelegate>
+@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate, LocationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *homeButtonEffects;
 @property (weak, nonatomic) IBOutlet UIButton *codeFellowsEffects;
@@ -28,29 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    
-//    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-//    
-//    testObject[@"testName"] = @"David Porter";
-//    
-//    [testObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-//        if (succeeded) {
-//            NSLog(@"Success Saving test object");
-//        } else {
-//            NSLog(@"There was a problem saving. Save Error: %@", error.localizedDescription);
-//        }
-//    }];
-    
-//    PFQuery *query = [PFQuery queryWithClassName:@"TestObject"];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-//        if (error) {
-//            NSLog(@"%", error.localizedDescription);
-//        } else {
-//            NSLog(@"Query Results %@", objects);
-//        }
-//    }];
-    
+
     LocationController *locationController = [LocationController shared];
     locationController.delegate = self;
     
@@ -60,6 +39,23 @@
     self.codeFellowsEffects.layer.cornerRadius = 10;
     self.momEffects.layer.cornerRadius = 10;
     self.myLocationEffects.layer.cornerRadius = 10;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reminderSavedToParse:) name:@"ReminderSavedToParse" object:nil];
+    
+    if (![PFUser currentUser]) {
+        PFLogInViewController *loginViewController = [[PFLogInViewController alloc]init];
+        loginViewController.delegate = self;
+        loginViewController.signUpController.delegate = self;
+        
+        loginViewController.fields = PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsUsernameAndPassword;
+        
+        [self presentViewController:loginViewController animated:YES completion:nil];
+    }
+    
+}
+
+-(void)reminderSavedToParse:(id)sender {
+    NSLog(@"Do Some stuff since our reminder was saved to parse");
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -80,6 +76,10 @@
             [hulk.mapView addOverlay:circle];
         };
     }
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"ReminderSavedToParse" object:nil];
 }
 
 - (IBAction)location1Pressed:(id)sender {
@@ -166,9 +166,17 @@
     MKCircleRenderer *renderer = [[MKCircleRenderer alloc]initWithCircle:overlay];
     
     renderer.strokeColor = [UIColor blueColor];
-    renderer.fillColor = [UIColor redColor];
+    renderer.fillColor = [UIColor blueColor];
     renderer.alpha = 0.5;
     return renderer;
+}
+
+-(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
