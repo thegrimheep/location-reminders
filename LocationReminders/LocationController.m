@@ -29,6 +29,10 @@
     return self;
 }
 
+-(void)startMonitoringForRegion:(CLRegion *)region {
+    [self.locationManager startMonitoringForRegion:region];
+}
+
 -(void)requestPermissions {
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
