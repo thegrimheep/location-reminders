@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "LocationControllerDelegate.h"
 
 
@@ -21,5 +20,7 @@
 
 + (id)shared;
 - (void)updateLocation;
+
+-(void)startMonitoringForRegion:(CLRegion *)region;
 
 @end
