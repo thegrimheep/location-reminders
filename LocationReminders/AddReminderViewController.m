@@ -11,6 +11,8 @@
 #import "LocationController.h"
 
 @interface AddReminderViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *addReminderTextField;
+@property (weak, nonatomic) IBOutlet UITextField *radiusTextField;
 
 @end
 
@@ -19,9 +21,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIBarButtonItem *doneButton = [[[UIBarButtonItem alloc]init]initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(saveButtonPressed)];
+    [[self navigationItem] setRightBarButtonItem:doneButton];
+}
+
+-(void)saveButtonPressed {
+    [self saveReminder];
+    [[self navigationController] popViewControllerAnimated:YES];
+}
+
+-(void)saveReminder {
     Reminder *newReminder = [Reminder object];
     
-    newReminder.name = self.annotationTitle;
+    newReminder.name = self.addReminderTextField.text;
+    newReminder.radius = [self numberFromString:self.radiusTextField.text];
     newReminder.location = [PFGeoPoint geoPointWithLatitude:self.coordinate.latitude longitude:self.coordinate.longitude];
     
     [newReminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
@@ -32,7 +45,7 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ReminderSavedToParse" object:nil];
         
         if (self.completion) {
-            CGFloat radius = 100; //coming from UISlider or textfield
+            CGFloat radius = [self.radiusTextField.text floatValue];
             MKCircle *circle = [MKCircle circleWithCenterCoordinate:self.coordinate radius:radius];
             
             if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
@@ -42,11 +55,15 @@
             }
             
             self.completion(circle);
-            
-            //call this on the save button being clicked. 
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];
+}
+
+-(NSNumber *)numberFromString:(NSString *)string {
+    NSNumberFormatter *formatString = [[NSNumberFormatter alloc]init];
+    [formatString setNumberStyle:NSNumberFormatterDecimalStyle];
+    return  [formatString numberFromString:string];
 }
 
 @end

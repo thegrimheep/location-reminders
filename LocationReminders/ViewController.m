@@ -59,6 +59,7 @@
             NSLog(@"Error Fetching The Reminder %@", error.localizedDescription);
         } else {
             NSLog(@"%@", objects);
+            
         }
     }];
 }
@@ -175,9 +176,9 @@
 -(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
     MKCircleRenderer *renderer = [[MKCircleRenderer alloc]initWithCircle:overlay];
     
-    renderer.strokeColor = [UIColor blueColor];
+//    renderer.strokeColor = [UIColor blueColor];
     renderer.fillColor = [UIColor blueColor];
-    renderer.alpha = 0.5;
+    renderer.alpha = 0.3;
     return renderer;
 }
 
@@ -188,6 +189,7 @@
 -(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 
 @end
