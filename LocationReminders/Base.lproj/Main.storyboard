@@ -143,6 +143,10 @@
                             <constraint firstItem="g8D-Cj-tRw" firstAttribute="top" secondItem="697-SR-aUL" secondAttribute="bottom" constant="65" id="xAd-2h-hYw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addReminderTextField" destination="697-SR-aUL" id="z19-ha-Igf"/>
+                        <outlet property="radiusTextField" destination="g8D-Cj-tRw" id="bOh-b0-Kk1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8P-i2-ZIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

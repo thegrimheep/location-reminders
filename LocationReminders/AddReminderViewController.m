@@ -11,6 +11,8 @@
 #import "LocationController.h"
 
 @interface AddReminderViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *addReminderTextField;
+@property (weak, nonatomic) IBOutlet UITextField *radiusTextField;
 
 @end
 
@@ -19,6 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIBarButtonItem *doneButton = [[[UIBarButtonItem alloc]init]initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(savePressedDismissReminderViewController)];
+    [[self navigationItem] setRightBarButtonItem:doneButton];
+}
+
+-(void)saveReminder {
     Reminder *newReminder = [Reminder object];
     
     newReminder.name = self.annotationTitle;
@@ -42,11 +49,15 @@
             }
             
             self.completion(circle);
-            
-            //call this on the save button being clicked. 
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];
+}
+
+-(NSNumber *)numberFromString:(NSString *)string {
+    NSNumberFormatter *formatString = [[NSNumberFormatter alloc]init];
+    [formatString setNumberStyle:NSNumberFormatterDecimalStyle];
+    return  [formatString numberFromString:string];
 }
 
 @end
