@@ -21,8 +21,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *doneButton = [[[UIBarButtonItem alloc]init]initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(savePressedDismissReminderViewController)];
+    UIBarButtonItem *doneButton = [[[UIBarButtonItem alloc]init]initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(saveButtonPressed)];
     [[self navigationItem] setRightBarButtonItem:doneButton];
+}
+
+-(void)saveButtonPressed {
+    [self saveReminder];
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 -(void)saveReminder {
